@@ -45,14 +45,14 @@ export const Register = () => {
         <div className="Register">
             <div className="auth-form-container">
                 <form className="register-form" onSubmit={handleSubmit}>
-                    <label htmlFor="name">Ім'я</label>
-                    <input name="name" id="name" required='true' placeholder="Ім'я"/>
-                    <label htmlFor="lastName">Прізвище</label>
-                    <input name="lastName" id="name" required='true' placeholder="Прізвище"/>
-                    <label htmlFor="email">Електронна пошта</label>
-                    <input type="email" required='true' placeholder="youremail@gmail.com" id="email" name="email"/>
-                    <label htmlFor="password">Пароль</label>
-                    <input onChange={changePassword} type="password" required='true' placeholder="********" id="password" name="password"/>
+                    <label className='labelsForLoginAndRegister' htmlFor="name">Ім'я</label>
+                    <input className='inputsForLoginAndRegister' name="name" id="name" required='true' placeholder="Ім'я"/>
+                    <label className='labelsForLoginAndRegister' htmlFor="lastName">Прізвище</label>
+                    <input className='inputsForLoginAndRegister' name="lastName" id="name" required='true' placeholder="Прізвище"/>
+                    <label className='labelsForLoginAndRegister' htmlFor="email">Електронна пошта</label>
+                    <input className='inputsForLoginAndRegister' type="email" required='true' placeholder="youremail@gmail.com" id="email" name="email"/>
+                    <label className='labelsForLoginAndRegister' htmlFor="password">Пароль</label>
+                    <input className='inputsForLoginAndRegister' onChange={changePassword} type="password" required='true' placeholder="********" id="password" name="password"/>
                     {passwordLength ? (<div className='active-text-animation'><p >✅<span className='active-text'>Довжина паролю більше 8 символів!</span></p></div>): (<p>❌<span className='disabled-text'>Довжина паролю більше 8 символів!</span></p>)}
                     {passwordUpper ? (<div className='active-text-animation'><p >✅<span className='active-text'>Пароль містить велику літеру!</span></p></div>): (<p>❌<span className='disabled-text'>Пароль містить велику літеру!</span></p>)}
                     {passwordNum ? (<div className='active-text-animation'><p >✅<span className='active-text'>Пароль містить хоча б одну цифру!</span></p></div>): (<p>❌<span className='disabled-text'>Пароль містить хоча б одну цифру!</span></p>)}
