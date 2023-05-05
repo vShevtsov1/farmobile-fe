@@ -1,6 +1,8 @@
 import React, {useState} from "react";
 import {Link} from "react-router-dom";
 import '../stylesSheets/LoginAndRegister.css'
+import axios from "axios";
+import {ReactNotifications, Store} from "react-notifications-component";
 
 
 export const Register = () => {
@@ -27,9 +29,59 @@ export const Register = () => {
         }
     }
 
-    function handleSubmit() {
+    function handleSubmit(event) {
+        event.preventDefault();
+        let data = JSON.stringify({
+            "name": event.target.name.value,
+            "surname": event.target.surname.value,
+            "email": event.target.email.value,
+            "password": event.target.password.value
+        });
 
+        let config = {
+            method: 'post',
+            maxBodyLength: Infinity,
+            url: '/user/register',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            data : data
+        };
+        axios.request(config)
+            .then((response) => {
+                if(response.data.status==="FAILED"){
+                    Store.addNotification({
+                        title: "ПОМИЛКА!",
+                        message: "Електронна адреса вже зареєстрована!",
+                        type: "danger",
+                        insert: "top",
+                        container: "top-right",
+                        animationIn: ["animate__animated", "animate__bounceIn"],
+                        animationOut: ["animate__animated", "animate__flipOutX"],
+                        dismiss: {
+                            duration: 5000
+                        }
+                    });
+                }else {
+                    Store.addNotification({
+                        title: "Інформація",
+                        message: "На вашу електронну адресу було надіслано лист для активації профілю.",
+                        type: "info",
+                        insert: "top",
+                        container: "top-right",
+                        animationIn: ["animate__animated", "animate__bounceIn"],
+                        animationOut: ["animate__animated", "animate__flipOutX"],
+                        dismiss: {
+                            duration: 5000
+                        }
+                    });
+                }
+            })
+            .catch((error) => {
+                console.log(error);
+            });
     }
+
     function containsUppercase(str) {
         return str !== str.toLowerCase();
 
@@ -47,8 +99,8 @@ export const Register = () => {
                 <form className="register-form" onSubmit={handleSubmit}>
                     <label className='labelsForLoginAndRegister' htmlFor="name">Ім'я</label>
                     <input className='inputsForLoginAndRegister' name="name" id="name" required='true' placeholder="Ім'я"/>
-                    <label className='labelsForLoginAndRegister' htmlFor="lastName">Прізвище</label>
-                    <input className='inputsForLoginAndRegister' name="lastName" id="name" required='true' placeholder="Прізвище"/>
+                    <label className='labelsForLoginAndRegister' htmlFor="surname">Прізвище</label>
+                    <input className='inputsForLoginAndRegister' name="surname" id="surname" required='true' placeholder="Прізвище"/>
                     <label className='labelsForLoginAndRegister' htmlFor="email">Електронна пошта</label>
                     <input className='inputsForLoginAndRegister' type="email" required='true' placeholder="youremail@gmail.com" id="email" name="email"/>
                     <label className='labelsForLoginAndRegister' htmlFor="password">Пароль</label>
@@ -61,6 +113,7 @@ export const Register = () => {
                 </form>
                 <Link to={"/"}>Уже є акаунт? Увійти.</Link>
             </div>
+            <ReactNotifications />
         </div>
     )
 }
