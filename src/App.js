@@ -6,6 +6,7 @@ import {BrowserRouter, Route, Routes} from "react-router-dom";
 import "./App.css"
 import {ResetPassword} from "./auth-service/components/ResetPassword";
 import {Activation} from "./auth-service/components/Activation";
+import Navigation from "./main-page-service/components/navigation";
 
 
 
@@ -21,6 +22,7 @@ function App() {
             <Route path="/forgotpassword" element={<ForgotPassword/>}/>
             <Route path="/resetpassword" element={<ResetPassword/>}/>
             <Route path="/activation" element={<Activation/>}/>
+            <Route path="/navigation" element={<Navigation/>}/>
           </Routes>
         </BrowserRouter>
 

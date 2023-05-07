@@ -1,0 +1,80 @@
+nav {
+    position: relative;
+    top: 50px;
+    width: 100%;
+    background: rgba(58, 142, 63, 0.95);
+    height: 4rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.navigation-menu {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 0;
+}
+
+.navigation-menu a, .dropdown-menu a {
+    text-align: center;
+    color: #fff;
+    font-size: 18px;
+    font-weight: bold;
+    text-decoration: none;
+    padding: 20px;
+    box-sizing: border-box;
+    transition: background-color 0.3s ease;
+}
+
+.navigation-menu a:hover {
+    color: #fbff2e;
+}
+
+.dropdown-menu {
+    position: relative;
+}
+
+.dropdown-menu .additional-menu-technique {
+    position: absolute;
+    top: 100%;
+    left: -2rem;
+    display: none;
+    width: calc(100% + 80px); /* Increase width to be wider than the navigation menu */
+    margin-top: 20px;
+    background: rgba(58, 142, 63, 0.95);
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+.dropdown-menu .additional-menu-technique a {
+    text-align: left;
+}
+
+.dropdown-menu:hover .additional-menu-technique {
+    display: block;
+    animation: slide-down 1s ease forwards;
+}
+
+.additional-menu-technique a {
+    display: block;
+    color: #fff;
+    font-size: 16px;
+    text-decoration: none;
+    padding: 10px 0;
+}
+
+@keyframes slide-down {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
