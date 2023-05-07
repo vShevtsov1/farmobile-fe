@@ -43,6 +43,7 @@ export const Login = () =>{
                 }else {
                     localStorage.setItem('jwt', response.data.jwt);
                     localStorage.setItem('role', response.data.roles);
+
                 }
             })
             .catch((error) => {
@@ -65,7 +66,7 @@ export const Login = () =>{
 
                     <div className='checkboxAndResetPassword'>
                         <input  className='checkbox' type='checkbox' name='rememberMe'  /><label htmlFor='checkbox' >Запам'ятати мене?</label>
-                        <span className="resetPassword"><Link to={"/resetPassword"} >Забули пароль?</Link></span>
+                        <span className="forgotPassword"><Link to={"/forgotpassword"} >Забули пароль?</Link></span>
                     </div>
 
 

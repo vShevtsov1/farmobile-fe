@@ -1,5 +1,5 @@
 import React, {useState} from "react";
-import {Link} from "react-router-dom";
+import {Link, Navigate, useNavigate} from "react-router-dom";
 import '../stylesSheets/LoginAndRegister.css'
 import axios from "axios";
 import {ReactNotifications, Store} from "react-notifications-component";
@@ -9,7 +9,7 @@ export const Register = () => {
     const [passwordLength, setPasswordLength] = useState(false);
     const [passwordUpper, setPasswordUpper] = useState(false);
     const [passwordNum, setPasswordNum] = useState(false);
-
+    const navigate = useNavigate();
 
     function changePassword(event) {
         if (event.target.value.length < 8 ){
@@ -63,6 +63,7 @@ export const Register = () => {
                         }
                     });
                 }else {
+                    navigate('/')
                     Store.addNotification({
                         title: "Інформація",
                         message: "На вашу електронну адресу було надіслано лист для активації профілю.",
