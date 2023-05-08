@@ -1,0 +1,48 @@
+.about-container{
+    width: 100%;
+    height: 40rem;
+    z-index: 3;
+}
+.about-container .tractor-image{
+    position: absolute;
+    height: 25rem;
+    width: auto;
+    top: 75rem;
+    right: 20%;
+    transform: translate(-140%, -70%);
+    filter: grayscale(.4);
+    z-index: 5;
+}
+.about-container .darken-image{
+    content: "";
+    position: absolute;
+    top: 51rem;
+    left: 0;
+    width: 100%;
+    height: 69%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 2;
+}
+.about-text{
+    position: absolute;
+    max-width: 45rem;
+    top: 75rem;
+    right: 20%;
+    transform: translate(10%, -70%);
+    z-index: 5;
+}
+.about-text h1{
+    color: white;
+    font-weight: bold;
+    font-size: 3rem;
+    text-align: center;
+}
+.about-text p{
+    font-size: 1.3rem;
+    color: white;
+}
+.image-back{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}

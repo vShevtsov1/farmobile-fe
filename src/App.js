@@ -8,6 +8,8 @@ import {ResetPassword} from "./auth-service/components/ResetPassword";
 import {Activation} from "./auth-service/components/Activation";
 import Navigation from "./main-page-service/components/navigation";
 import RentComponent from "./main-page-service/components/rentComponent";
+import Header from "./main-page-service/components/header";
+import MainPage from "./main-page-service/components/mainPage";
 
 
 
@@ -25,6 +27,8 @@ function App() {
             <Route path="/activation" element={<Activation/>}/>
             <Route path="/navigation" element={<Navigation/>}/>
             <Route path="/rent" element={<RentComponent/>}/>
+            <Route path="/header" element={<Header/>}/>
+            <Route path="/main" element={<MainPage/>}/>
           </Routes>
         </BrowserRouter>
 
