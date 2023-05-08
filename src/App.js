@@ -7,6 +7,7 @@ import "./App.css"
 import {ResetPassword} from "./auth-service/components/ResetPassword";
 import {Activation} from "./auth-service/components/Activation";
 import Navigation from "./main-page-service/components/navigation";
+import RentComponent from "./main-page-service/components/rentComponent";
 
 
 
@@ -23,6 +24,7 @@ function App() {
             <Route path="/resetpassword" element={<ResetPassword/>}/>
             <Route path="/activation" element={<Activation/>}/>
             <Route path="/navigation" element={<Navigation/>}/>
+            <Route path="/rent" element={<RentComponent/>}/>
           </Routes>
         </BrowserRouter>
 
