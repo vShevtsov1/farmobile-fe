@@ -34,7 +34,8 @@ const Question = () => {
         axios.request(config)
             .then((response) => {
                 if (response.status === 200) {
-                    console.log(response.data)
+                    event.target.reset();
+                    setPhone("");
                     Store.addNotification({
                         title: "Інформація",
                         message: `Ваша заявка зареєстрована з номером ${response.data.idquestions}, очікуйте на дзвінок від наших операторів`,
@@ -47,6 +48,7 @@ const Question = () => {
                             duration: 5000
                         }
                     });
+
                 }
             })
             .catch((error) => {
