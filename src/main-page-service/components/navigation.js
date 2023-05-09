@@ -6,7 +6,7 @@ const Navigation = () => {
             <div className="navigation-menu">
                     <a href="#">Головна</a>
                 <div className="dropdown-menu">
-                    <a href="#">Техніка ↧</a>
+                    <a href="#">Техніка ⇓</a>
                     <div className="additional-menu-technique">
                         <a href="#">Вживана техніка</a>
                         <a href="#">Глибокорозпушувачі</a>
@@ -23,7 +23,7 @@ const Navigation = () => {
 
 
                 <div className="dropdown-menu">
-                    <a href="#">Запчастини ↧</a>
+                    <a href="#">Запчастини ⇓</a>
                     <div className="additional-menu-technique">
                         <a href="#">Сидіння тракторні</a>
 

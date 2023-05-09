@@ -5,8 +5,13 @@ header{
     z-index: 3;
 }
 .header-container{
-    padding: 0.5rem 20rem;
+    padding-top: 0.5rem;
     display: flex;
+    max-width: 94rem;
+    width: 100%;
+    margin: 0;
+    padding-left: 13rem;
+
 }
 svg{
     fill: rgb(103, 130, 110);;
@@ -36,7 +41,7 @@ svg:not(:root) {
 
 }
 .main-phrase{
-    width: 13rem;
+    width: 14rem;
     margin-left: 3rem;
 
 }
@@ -48,18 +53,18 @@ svg:not(:root) {
 }
 .call-service{
     display: flex;
-    width: 50rem;
+    width: 26rem;
     margin-left: 4rem;
 }
 .first-telef-number{
     margin-top: 1.5rem;
 }
-.first-telef-number h2{
+.call-service h2{
     color: #c2c235;
     margin: 0;
     text-align: center;
 }
-.first-telef-number h4{
+.call-service h4{
     color: white;
     margin: 0;
 
@@ -68,22 +73,17 @@ svg:not(:root) {
     margin-top: 1.5rem;
     margin-left: 3rem;
 }
-.second-telef-number h2{
-    color: #c2c235;
-    margin: 0;
-    text-align: center;
-}
-.second-telef-number h4{
-    color: white;
-    margin: 0;
 
-}
 
 .leaveRequest-button-container{
-    height: 5rem;
+    height: 4rem;
     margin-top: 1rem;
-    margin-left: 6rem;
+    margin-left: 2.7rem;
+    display: flex;
+    width: 30rem;
+
 }
+
 
 .leaveRequest-button {
     background-color: #c2c235;
@@ -110,8 +110,10 @@ svg:not(:root) {
     user-select: none;
     -webkit-user-select: none;
     touch-action: manipulation;
-    width: 100%;
+    width: 13rem;
+    height: 100%;
     will-change: transform;
+
 
 }
 
@@ -131,3 +133,4 @@ svg:not(:root) {
     transform: translateY(0);
 
 }
+

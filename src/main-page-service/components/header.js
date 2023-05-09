@@ -1,5 +1,6 @@
 import "../stylesheets/header.css"
 import { ReactComponent as Logo } from '../images/farm-machine-tractor-vehicle-svgrepo-com.svg';
+import {Link} from "react-router-dom";
 
 const Header = () => {
     return (
@@ -25,10 +26,14 @@ const Header = () => {
                         <h2>(033) 333-33-33</h2>
                         <h4>Відділ продажу техніки</h4>
                     </div>
-                    <div className='leaveRequest-button-container'>
-                        <button className='leaveRequest-button' type='submit'>Залишити заявку</button>
-                    </div>
                 </div>
+                <div className='leaveRequest-button-container'>
+                    <button className='leaveRequest-button' style={{marginRight: 25 }} type='submit'>Залишити заявку</button>
+                    <Link to='/'>
+                    <button className='leaveRequest-button' type='submit'>Увійти</button></Link>
+                </div>
+
+
             </div>
         </header>
     )
