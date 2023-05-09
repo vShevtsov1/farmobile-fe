@@ -23,9 +23,10 @@
 
 }
 .formInside{
-    margin: 2rem 0;
+    margin-top: .5rem;
+    margin-bottom: 2rem;
 }
-.questionForm input{
+.formInside input{
     margin: 0.2rem 2.6rem;
     padding: 1rem;
     border-radius: 10px;
@@ -34,12 +35,18 @@
     justify-content: center;
 
 }
-.questionForm label{
+.formInside label{
     text-align: left;
     padding:  0;
     color: black;
     font-family: cursive;
     margin-left: 3rem;
+}
+.leaveRequest-text{
+    text-align: center;
+    margin-top: 1.5rem;
+    font-family: cursive;
+    font-size: 1.2rem;
 }
 .button-phone-me {
     align-items: center;
