@@ -2,14 +2,13 @@
     width: 100%;
     background-color: #ffffff;
     background-image: url("../images/for_question.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
     height: 40rem;
     z-index: 4;
     display: flex;
     justify-content: center;
-
-
-
-
 }
 .questionForm{
     border: thick double lightgray;
@@ -29,7 +28,6 @@
 .questionForm input{
     margin: 0.2rem 2.6rem;
     padding: 1rem;
-
     border-radius: 10px;
     width: 70%;
     display: flex;
@@ -74,5 +72,5 @@
 }
 
 .button-phone-me:hover {
-    box-shadow: #121212 0 0 0 3px, transparent 0 0 0 0;
+    box-shadow: #121212 0 0 0 1px, transparent 0 0 0 0;
 }

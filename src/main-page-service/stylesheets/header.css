@@ -4,14 +4,14 @@ header{
     background-color: #5e5e5e;
     z-index: 3;
 }
+
 .header-container{
     padding-top: 0.5rem;
     display: flex;
-    max-width: 94rem;
+    justify-content: center;
     width: 100%;
     margin: 0;
-    padding-left: 13rem;
-
+    max-height: 7rem;
 }
 svg{
     fill: rgb(103, 130, 110);;
@@ -103,7 +103,7 @@ svg:not(:root) {
     min-height: 60px;
     min-width: 0;
     outline: none;
-    padding: 16px 24px;
+    padding: 22px 24px;
     text-align: center;
     text-decoration: none;
     transition: all 300ms cubic-bezier(.23, 1, 0.32, 1);

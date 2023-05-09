@@ -1,13 +1,8 @@
 footer{
     width: 100%;
-
     background-image: url("../images/Fields_Sunrises_and_sunsets_Tractor_525805_1920x1080.jpg");
     height: 40rem;
     z-index: 4;
     display: flex;
     justify-content: center;
-
-
-
-
 }
