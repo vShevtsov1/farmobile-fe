@@ -6,6 +6,7 @@ const Question = () => {
 
         <div className='question-container'>
                 <form className='questionForm'>
+                        <label className='leaveRequest-text'>Залишити заявку</label>
                     <div className='formInside'>
                         <label htmlFor='name'>Ім'я</label>
                         <input required='true' placeholder="Введіть ваше ім'я" id = "name" name = "name"/>
