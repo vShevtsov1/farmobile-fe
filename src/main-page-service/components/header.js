@@ -2,11 +2,26 @@ import "../stylesheets/header.css"
 import { ReactComponent as Logo } from '../images/farm-machine-tractor-vehicle-svgrepo-com.svg';
 import {Link} from "react-router-dom";
 import { Link as ScrollLink } from 'react-scroll';
+import {useEffect, useState} from "react";
+import jwt_decode from 'jwt-decode';
 
 
 
 
 const Header = () => {
+    const [login,setLogin] = useState(false);
+    const [email,setEmail] = useState("");
+
+    const token = localStorage.getItem("jwt");
+    useState(()=>{
+        const decodedToken = jwt_decode(token);
+        const expirationTime = decodedToken.exp;
+
+        if (expirationTime > Date.now() / 1000) {
+            setLogin(true);
+            setEmail(decodedToken.sub);
+        }
+    })
     return (
         <header>
             <div className="header-container">
@@ -43,8 +58,7 @@ const Header = () => {
                              className='leaveRequest-button'
                              style={{marginRight: 25  }}
                          >Залишити заявку</ScrollLink>
-                    <Link to='/'>
-                    <button className='leaveRequest-button' type='submit'>Увійти</button></Link>
+                    {login ? <div>Привіт {email} Вихід</div>: <button className='leaveRequest-button' type='submit'>Увійти</button>}
                 </div>
 
 
