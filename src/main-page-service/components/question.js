@@ -6,7 +6,7 @@ const Question = () => {
 
         <div className='question-container'>
                 <form className='questionForm'>
-                    <div className='ddd'>
+                    <div className='formInside'>
                         <label htmlFor='name'>Ім'я</label>
                         <input required='true' placeholder="Введіть ваше ім'я" id = "name" name = "name"/>
                         <label htmlFor='name'>Телефон</label>
