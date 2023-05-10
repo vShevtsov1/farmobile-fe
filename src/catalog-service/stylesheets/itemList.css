@@ -1,0 +1,26 @@
+.item-list {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
+    margin-left: 9rem;
+    padding-top: 2rem;
+
+
+}
+
+
+.item-animation {
+    opacity: 0;
+    animation: itemFadeIn 1.5s ease-in-out;
+}
+
+@keyframes itemFadeIn {
+    0% {
+        opacity: 0;
+        transform: translateY(50%);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}

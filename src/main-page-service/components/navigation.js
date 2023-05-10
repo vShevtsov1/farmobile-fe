@@ -1,6 +1,7 @@
 import "../stylesheets/navigation.css"
 import {useState} from "react";
 import jwt_decode from "jwt-decode";
+import {Link} from "react-router-dom";
 
 const Navigation = (showAdminPanel) => {
     const [role,setRole] = useState("");
@@ -24,20 +25,20 @@ const Navigation = (showAdminPanel) => {
     return (
         <nav>
             <div className="navigation-menu">
-                    <a href="#">Головна</a>
+                    <Link to={"/main"}>Головна</Link>
                 <div className="dropdown-menu">
                     <a href="#">Техніка ⇓</a>
                     <div className="additional-menu-technique">
-                        <a href="#">Вживана техніка</a>
-                        <a href="#">Глибокорозпушувачі</a>
-                        <a href="#">Грейдери</a>
-                        <a href="#">Змішувачі хімікатів</a>
-                        <a href="#">Мульчувачі</a>
-                        <a href="#">Плуги</a>
-                        <a href="#">Ріпакові столи</a>
-                        <a href="#">Розкидачі добрив</a>
-                        <a href="#">Ротаційні борони</a>
-                        <a href="#">Телескопічні навантажувачі</a>
+                        <Link to={"/catalog/vzhyvana-tekhnika"}>Вживана техніка</Link>
+                        <Link to={"/catalog/hlybokorozpushuvachi"}>Глибокорозпушувачі</Link>
+                        <Link to={"/catalog/hreydery"}>Грейдери</Link>
+                        <Link to={"/catalog/zmishuvachi-khimikativ"}>Змішувачі хімікатів</Link>
+                        <Link to={"/catalog/mulchuvachi"}>Мульчувачі</Link>
+                        <Link to={"/catalog/pluhy"}>Плуги</Link>
+                        <Link to={"/catalog/ripakovi-stoly"}>Ріпакові столи</Link>
+                        <Link to={"/catalog/rozkydachi-dobryv"}>Розкидачі добрив</Link>
+                        <Link to={"/catalog/rotatsiyni-borony"}>Ротаційні борони</Link>
+                        <Link to={"/catalog/teleskopichni-navantazhuvachi"}>Телескопічні навантажувачі</Link>
                     </div>
                 </div>
 
@@ -45,7 +46,7 @@ const Navigation = (showAdminPanel) => {
                 <div className="dropdown-menu">
                     <a href="#">Запчастини ⇓</a>
                     <div className="additional-menu-technique">
-                        <a href="#">Сидіння тракторні</a>
+                        <Link to={"/catalog/sydinnya-traktorni-sears-seating"}>Сидіння тракторні</Link>
 
                     </div>
                 </div>

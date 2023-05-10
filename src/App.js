@@ -13,6 +13,7 @@ import MainPage from "./main-page-service/components/mainPage";
 import Question from "./main-page-service/components/question";
 import Footer from "./main-page-service/components/footer";
 import { CartContext } from "./main-page-service/config/CartContext";
+import Catalog from "./catalog-service/components/catalog";
 
 
 function App() {
@@ -34,6 +35,7 @@ function App() {
             <Route path="/main" element={<MainPage/>}/>
             <Route path="/question" element={<Question/>}/>
             <Route path="/footer" element={<Footer/>}/>
+            <Route path="/catalog/:categoryId" element={<Catalog/>}/>
           </Routes>
         </BrowserRouter>
 

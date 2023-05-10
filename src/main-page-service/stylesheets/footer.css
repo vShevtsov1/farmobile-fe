@@ -7,6 +7,7 @@ footer{
     display: flex;
     justify-content: center;
 
+
 }
 .blur{
     width: 100%;
@@ -71,7 +72,7 @@ footer{
     margin-right: 15rem;
 
 }
-a{
+.additional-info a{
     color: darkkhaki;
     text-decoration: none;
 
