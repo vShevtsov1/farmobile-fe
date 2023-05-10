@@ -14,7 +14,7 @@ const Question = () => {
                     </div>
                     <div className='additional-info'>
                         <i>< a href="mailto:farmobile@gmail.com">farmobile@gmail.com< /a></i>
-                        <span className='telefon'> <br/>(067) 473-58-66</span>
+                        <span className='telefon'> <br/>(055) 555-55-55</span>
                         <span className='workTime'><br/>Пн-Пт з 9.00 до 18.00
                         <br/>Сб-Нд вихідний</span>
                     </div>

@@ -12,13 +12,14 @@ import Header from "./main-page-service/components/header";
 import MainPage from "./main-page-service/components/mainPage";
 import Question from "./main-page-service/components/question";
 import Footer from "./main-page-service/components/footer";
-
+import { CartContext } from "./main-page-service/config/CartContext";
 
 
 function App() {
-
+  const [cartItems, setCartItems] = useState([]);
 
   return (
+      <CartContext.Provider value={{ cartItems, setCartItems }}>
       <div className="App">
         <BrowserRouter>
           <Routes>
@@ -37,6 +38,7 @@ function App() {
         </BrowserRouter>
 
       </div>
+      </CartContext.Provider>
   );
 }
 

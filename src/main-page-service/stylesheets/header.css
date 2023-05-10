@@ -133,4 +133,19 @@ svg:not(:root) {
     transform: translateY(0);
 
 }
+.logout-text{
+    cursor: pointer;
+}
+.login-text{
+    color: white;
+    text-align: center;
+    font-weight: bold;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+.logout-text{
+    color: #c2c235;
+}
 

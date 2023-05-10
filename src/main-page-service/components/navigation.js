@@ -1,6 +1,26 @@
 import "../stylesheets/navigation.css"
+import {useState} from "react";
+import jwt_decode from "jwt-decode";
 
-const Navigation = () => {
+const Navigation = (showAdminPanel) => {
+    const [role,setRole] = useState("");
+
+    useState(()=>{
+        try {
+            const token = localStorage.getItem("jwt");
+            const decodedToken = jwt_decode(token);
+            const expirationTime = decodedToken.exp;
+
+            if (expirationTime > Date.now() / 1000) {
+                setRole(decodedToken.role)
+            }
+        }
+        catch (e) {
+
+        }
+
+    })
+    console.log(showAdminPanel.showAdminPanel)
     return (
         <nav>
             <div className="navigation-menu">
@@ -29,7 +49,7 @@ const Navigation = () => {
 
                     </div>
                 </div>
-                <a href="#">Контакти</a>
+                {role==='ADMIN'&showAdminPanel.showAdminPanel ? <a href="#">Aдмін панель</a>:<div></div>}
             </div>
         </nav>
     )

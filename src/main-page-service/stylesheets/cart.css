@@ -1,0 +1,21 @@
+.cart-user img{
+    width: 75px;
+    height: auto;
+    margin-left: 25px;
+}
+.cart-user{
+    position: relative;
+    margin-top: .6rem;
+}
+.cart-count {
+    position: absolute;
+    top: 33px;
+    left: 57px;
+    font-family: verdana;
+    font-weight: bold;
+    text-transform: uppercase;
+    text-align: center;
+    font-size: 15px;
+    color: rgb(255, 255, 255);
+    text-shadow: rgb(0, 0, 0) 2px 2px 2px;
+}
