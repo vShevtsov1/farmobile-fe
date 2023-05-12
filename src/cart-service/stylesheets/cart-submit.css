@@ -1,0 +1,94 @@
+.cart-submit-container {
+    min-height: 50rem;
+    display: flex;
+    flex-direction: row;
+}
+
+.items-table {
+
+    width: 60%;
+}
+
+.user-info-cart {
+    width: 40%;
+    display: flex;
+    justify-content: center;
+}
+
+.form-user {
+    margin-top: 3rem;
+    padding: 5rem;
+    border: 3px groove gray;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    background-color: whitesmoke;
+    width: 30rem;
+    height: 35rem;
+}
+
+.user-form input {
+    margin: 0.5rem 0;
+    padding: 1rem;
+
+    border-radius: 10px;
+}
+
+.user-form label {
+    text-align: left;
+    padding: 0.25rem 0;
+}
+
+.user-form button {
+    margin-top: 2rem;
+    margin-left: auto;
+    margin-right: auto;
+    height: 4rem;
+
+}
+
+
+.items-table table{
+    border-collapse: collapse;
+    width: 70%;
+    text-align: center;
+    white-space: normal;
+    table-layout: fixed;
+
+    margin-left: 5rem;
+}
+.items-table table, td, th {
+    border: 1px solid;
+}
+.items-table thead{
+    background-color: #bdbbbb;
+    font-size: 1.5rem;
+    font-weight: bold;
+    text-align: center;
+}
+.items-table tbody{
+    font-size: 1rem;
+}
+.items-table tbody tr td:first-child{
+   text-align: left;
+}
+.items-table tr td:first-child{
+    word-wrap: break-word;
+    width: 55%;
+    height: 2rem;
+
+}
+.items-table tr td:nth-child(2){
+    width: 15%;
+}
+.items-table tr td:nth-child(3){
+    width: 15%;
+}
+.items-table tr td:nth-child(3){
+    width: 15%;
+}
+.items-table h1{
+
+    margin-left: 5rem;
+
+}

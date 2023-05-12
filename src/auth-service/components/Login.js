@@ -1,5 +1,5 @@
-import React, {useState} from "react";
-import {Link} from "react-router-dom";
+import React from "react";
+import {Link, useNavigate} from "react-router-dom";
 import '../stylesSheets/LoginAndRegister.css'
 import axios from "axios";
 import 'react-notifications-component/dist/theme.css'
@@ -7,7 +7,7 @@ import { ReactNotifications } from 'react-notifications-component'
 import { Store } from 'react-notifications-component';
 import 'animate.css/animate.min.css';
 export const Login = () =>{
-
+    const navigate = useNavigate();
     function handleSubmit(event) {
         event.preventDefault();
         let data = JSON.stringify({
@@ -43,7 +43,7 @@ export const Login = () =>{
                 }else {
                     localStorage.setItem('jwt', response.data.jwt);
                     localStorage.setItem('role', response.data.roles);
-
+                    navigate("/main");
                 }
             })
             .catch((error) => {

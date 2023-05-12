@@ -5,10 +5,11 @@ import {CartContext} from "../config/CartContext";
 import {Link} from "react-router-dom";
 function Cart() {
     const { cartItems } = useContext(CartContext);
+
     return(<div className="cart-user">
-        <Link to={"/cart"}>
+        <Link to={"/cart-submit"}>
             <img src={cart} alt="cart-logo"/>
-            <span className="cart-count">{cartItems.length}</span></Link>
+            <span className="cart-count">{cartItems.size}</span></Link>
     </div>)
 }
 export default Cart;

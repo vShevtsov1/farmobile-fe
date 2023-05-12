@@ -14,10 +14,13 @@ import Question from "./main-page-service/components/question";
 import Footer from "./main-page-service/components/footer";
 import { CartContext } from "./main-page-service/config/CartContext";
 import Catalog from "./catalog-service/components/catalog";
+import ItemInfo from "./catalog-service/components/item-info";
+import CartSubmit from "./cart-service/components/cart-submit";
+import Payment from "./cart-service/components/payment";
 
 
 function App() {
-  const [cartItems, setCartItems] = useState([]);
+  const [cartItems, setCartItems] = useState(new Map());
 
   return (
       <CartContext.Provider value={{ cartItems, setCartItems }}>
@@ -36,6 +39,9 @@ function App() {
             <Route path="/question" element={<Question/>}/>
             <Route path="/footer" element={<Footer/>}/>
             <Route path="/catalog/:categoryId" element={<Catalog/>}/>
+            <Route path="/catalog/item/:itemId" element={<ItemInfo/>}/>
+            <Route path="/cart-submit" element={<CartSubmit/>}/>
+            <Route path="/payment" element={<Payment/>}/>
           </Routes>
         </BrowserRouter>
 

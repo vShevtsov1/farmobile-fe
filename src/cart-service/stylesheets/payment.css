@@ -1,0 +1,47 @@
+.payment-container{
+    width: 100%;
+    height: 50rem;
+    display: flex;
+    flex-direction: column;
+    padding-top: 2rem;
+    opacity: 0;
+    animation: fadeIn 2.5s ease forwards;
+
+}
+.payment-container form{
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Center form elements horizontally */
+    justify-content: center; /* Center form elements vertically */
+
+}
+.payment-container input {
+    margin: 0.5rem 0;
+    padding: 1rem;
+    border-radius: 10px;
+    max-width: 20rem;
+    display: flex;
+    flex-direction: column;
+    margin-left: auto;
+    margin-right: auto;
+}
+.payment-container label{
+    max-width: 20rem;
+    display: flex;
+    flex-direction: column;
+    margin-left: auto;
+    margin-right: auto;
+
+    font-size: 1.2rem;
+}
+.payment-container label:first-child{
+    padding-top: 1rem;
+}
+.payment-container input::-webkit-outer-spin-button,
+.payment-container input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+.payment-container button{
+    margin-top: 1.5rem;
+}

@@ -21,7 +21,6 @@ const Navigation = (showAdminPanel) => {
         }
 
     })
-    console.log(showAdminPanel.showAdminPanel)
     return (
         <nav>
             <div className="navigation-menu">
