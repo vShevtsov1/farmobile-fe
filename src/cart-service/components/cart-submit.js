@@ -22,7 +22,7 @@ const CartSubmit = () => {
 
     const handleTokenRemoval = () => {
         setShowAdminPanel(false);
-        navigate("/main")
+        navigate("/")
     };
 
     useEffect(() => {
@@ -32,12 +32,12 @@ const CartSubmit = () => {
             const expirationTime = decodedToken.exp;
 
             if (expirationTime < Date.now() / 1000) {
-                navigate("/");
+                navigate("/login");
             } else {
                 setToken(token);
             }
         } catch (e) {
-            navigate("/");
+            navigate("/login");
         }
     }, [navigate]);
 

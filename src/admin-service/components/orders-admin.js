@@ -47,8 +47,8 @@ const OrdersAdmin = () => {
         const formattedTime = `${date.getHours()}:${date.getMinutes()}:${date.getSeconds()}`;
 
         return (
-            <tr key={order.idorders} onClick={()=>orderInfo(order.idorders)}>
-              <td>{order.idorders}</td>
+            <tr key={order.idOrders} onClick={()=>orderInfo(order.idOrders)}>
+              <td>{order.idOrders}</td>
               <td>{`${formattedDate} ${formattedTime}`}</td>
               <td>{order.summ}</td>
               <td>{order.phoneNumber}</td>

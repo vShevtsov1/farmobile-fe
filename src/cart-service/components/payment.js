@@ -40,7 +40,7 @@ const Payment = ({summ,data}) => {
         axios.request(config)
             .then((response) => {
                 if(response.status===200){
-                    navigate("/main")
+                    navigate("/")
                     Store.addNotification({
                         title: "Успіх!",
                         message: `Ваше замовлення з id${response.data.idorders} успішно створено`,

@@ -41,7 +41,7 @@
             <header>
                 <div className="header-container">
                     <div className="main-name">
-                        <Link to='/main'><Logo/></Link>
+                        <Link to='/'><Logo/></Link>
                         <h1>Farmobile</h1>
                     </div>
                     <div className='main-phrase'>
@@ -73,7 +73,7 @@
                                  className='leaveRequest-button'
                                  style={{marginRight: 25  }}
                              >Залишити заявку</ScrollLink>
-                        {login ? <div className={"login-text"}>Привіт {email} <span className={"logout-text"} onClick={logout}>Вихід</span></div>: <Link to={"/"}><button className='leaveRequest-button' type='submit'>Увійти</button></Link>}
+                        {login ? <div className={"login-text"}>Привіт {email} <span className={"logout-text"} onClick={logout}>Вихід</span></div>: <Link to={"/login"}><button className='leaveRequest-button' type='submit'>Увійти</button></Link>}
                     </div>
 
                 <Cart/>

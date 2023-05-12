@@ -19,7 +19,7 @@ export const ForgotPassword = () =>{
             .then((response) => {
                 console.log(response.data);
                 if(response.data === 'OK'){
-                    navigate('/')
+                    navigate('/login')
                     Store.addNotification({
                         title: "Інформація",
                         message: "На вашу електронну адресу було надіслано лист для відновлення паролю.",
@@ -33,7 +33,7 @@ export const ForgotPassword = () =>{
                         }
                     });
                 }else {
-                    navigate('/')
+                    navigate('/login')
                     Store.addNotification({
                         title: "Помилка!",
                         message: "Виникла помилка під час відправки посилання для відновлення паролю.",

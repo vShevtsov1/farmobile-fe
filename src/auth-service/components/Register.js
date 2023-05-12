@@ -66,7 +66,7 @@ export const Register = () => {
                         }
                     });
                 }else {
-                    navigate('/')
+                    navigate('/login')
                     Store.addNotification({
                         title: "Інформація",
                         message: "На вашу електронну адресу було надіслано лист для активації профілю.",
@@ -115,7 +115,7 @@ export const Register = () => {
                     {(passwordLength === true && passwordUpper === true && passwordNum === true && isButtonClicked === false) ? (<button className='auth-button'   style={{cursor:'pointer'}} type='submit'  >Зареєструватися</button>): (<button className='auth-button' style={{cursor: "not-allowed"}}  type='submit' disabled={true}  >Зареєструватися</button>)}
 
                 </form>
-                <Link to={"/"}>Уже є акаунт? Увійти.</Link>
+                <Link to={"/login"}>Уже є акаунт? Увійти.</Link>
             </div>
             <ReactNotifications />
         </div>

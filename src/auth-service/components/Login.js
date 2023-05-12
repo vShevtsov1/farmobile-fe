@@ -43,7 +43,7 @@ export const Login = () =>{
                 }else {
                     localStorage.setItem('jwt', response.data.jwt);
                     localStorage.setItem('role', response.data.roles);
-                    navigate("/main");
+                    navigate("/");
                 }
             })
             .catch((error) => {

@@ -35,7 +35,7 @@ export const ResetPassword = () => {
             .then((response) => {
                 console.log(response.data);
                 if(response.data === 'OK'){
-                    navigate('/')
+                    navigate('/login')
                     Store.addNotification({
                         title: "Успіх!",
                         message: "Ви успішно змінили пароль!",
@@ -49,7 +49,7 @@ export const ResetPassword = () => {
                         }
                     });
                 }else {
-                    navigate('/')
+                    navigate('/login')
                     Store.addNotification({
                         title: "ПОМИЛКА!",
                         message: "Не вдалося змінити пароль.",

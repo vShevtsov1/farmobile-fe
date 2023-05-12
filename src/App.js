@@ -30,23 +30,16 @@ function App() {
       <div className="App">
         <BrowserRouter>
           <Routes>
-            <Route path="/" element={<Login/>}/>
+            <Route path="/login" element={<Login/>}/>
             <Route path="/register" element={<Register/>}/>
             <Route path="/forgotpassword" element={<ForgotPassword/>}/>
             <Route path="/resetpassword" element={<ResetPassword/>}/>
             <Route path="/activation" element={<Activation/>}/>
-            <Route path="/navigation" element={<Navigation/>}/>
-            <Route path="/rent" element={<RentComponent/>}/>
-            <Route path="/header" element={<Header/>}/>
-            <Route path="/main" element={<MainPage/>}/>
-            <Route path="/question" element={<Question/>}/>
-            <Route path="/footer" element={<Footer/>}/>
+            <Route path="/" element={<MainPage/>}/>
             <Route path="/catalog/:categoryId" element={<Catalog/>}/>
             <Route path="/catalog/item/:itemId" element={<ItemInfo/>}/>
             <Route path="/cart-submit" element={<CartSubmit/>}/>
-            <Route path="/payment" element={<Payment/>}/>
             <Route path="/admin" element={<AdminPanel/>}/>
-            <Route path="/products" element={<AdminProducts/>}/>
             <Route path="/order/:orderId" element={<Order/>}/>
           </Routes>
         </BrowserRouter>

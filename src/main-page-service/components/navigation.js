@@ -49,7 +49,7 @@ const Navigation = (showAdminPanel) => {
 
                     </div>
                 </div>
-                {role==='ADMIN' & showAdminPanel.showAdminPanel ? <a href="#">Aдмін панель</a>:<div></div>}
+                {role==='ADMIN' & showAdminPanel.showAdminPanel ? <Link to={'/admin'}>Aдмін панель</Link>:<div></div>}
             </div>
         </nav>
     )

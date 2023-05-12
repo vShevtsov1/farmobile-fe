@@ -17,7 +17,7 @@ export const Activation = () => {
             .then((response) => {
 
                 if(response.data === 'OK'){
-                    navigate('/')
+                    navigate('/login')
                     Store.addNotification({
                         title: "Успіх!",
                         message: "Акаунт успішно активований!",
@@ -31,7 +31,7 @@ export const Activation = () => {
                         }
                     });
                 }else {
-                    navigate('/')
+                    navigate('/login')
                     Store.addNotification({
                         title: "Помилка!",
                         message: "Виникла помилка під час активації!",
