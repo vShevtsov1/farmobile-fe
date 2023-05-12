@@ -5,7 +5,7 @@
     import "../stylesheets/mainPage.css"
     import Question from "./question";
     import Footer from "./footer";
-    import {ReactNotifications} from "react-notifications-component";
+    import {ReactNotifications, Store} from "react-notifications-component";
     import React, {useState} from "react";
 
     const MainPage = () => {

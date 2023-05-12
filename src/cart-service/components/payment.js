@@ -2,8 +2,12 @@ import "../stylesheets/payment.css"
 import Cards from 'react-credit-cards-2';
 import React, {useState} from "react";
 import 'react-credit-cards-2/dist/es/styles-compiled.css'
+import axios from "axios";
+import {useNavigate} from "react-router-dom";
+import {ReactNotifications, Store} from "react-notifications-component";
 
-const Payment = ({summ}) => {
+const Payment = ({summ,data}) => {
+    const navigate = useNavigate();
     const [state, setState] = useState({
         number: '',
         expiry: '',
@@ -21,7 +25,42 @@ const Payment = ({summ}) => {
         setState((prev) => ({ ...prev, focus: evt.target.name }));
     }
 
-    function createOrder() {
+    function createOrder(event) {
+        event.preventDefault()
+        let config = {
+            method: 'post',
+            maxBodyLength: Infinity,
+            url: '/orders/create',
+            headers: {
+                'Content-Type': 'application/json',
+                'Authorization': 'Bearer '+localStorage.getItem("jwt")
+            },
+            data : data
+        };
+        axios.request(config)
+            .then((response) => {
+                if(response.status===200){
+                    navigate("/main")
+                    Store.addNotification({
+                        title: "Успіх!",
+                        message: `Ваше замовлення з id${response.data.idorders} успішно створено`,
+                        type: "success",
+                        insert: "top",
+                        container: "top-right",
+                        animationIn: ["animate__animated", "animate__bounceIn"],
+                        animationOut: ["animate__animated", "animate__flipOutX"],
+                        dismiss: {
+                            duration: 5000
+                        }
+                    });
+
+
+
+                }
+            })
+            .catch((error) => {
+                console.log(error);
+            });
 
     }
 
@@ -86,7 +125,7 @@ const Payment = ({summ}) => {
             />
             <button  className={"leaveRequest-button"}>Оплатити {summ} UAH</button>
 
-
+            <ReactNotifications/>
         </form>
     </div>)
 }
