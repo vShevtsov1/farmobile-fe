@@ -1,0 +1,29 @@
+.users-admin-container{
+    height: 100%;
+    width: 100%;
+}
+.users-admin-container table{
+    border-collapse: collapse;
+    width: 100%;
+    text-align: center;
+    white-space: normal;
+    table-layout: fixed;
+
+}
+.users-admin-container table, td, th {
+    border: 1px solid;
+}
+.users-admin-container thead{
+    background-color: #bdbbbb;
+    font-size: 1.5rem;
+    font-weight: bold;
+    text-align: center;
+}
+.users-admin-container tbody{
+    font-size: 1rem;
+}
+.items-table tr td{
+    word-wrap: break-word;
+
+
+}

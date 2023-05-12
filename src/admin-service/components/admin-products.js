@@ -26,7 +26,46 @@ const AdminProducts = () => {
 
         axios.request(config)
             .then((response) => {
-                console.log(JSON.stringify(response.data));
+                let config = {
+                    method: 'get',
+                    maxBodyLength: Infinity,
+                    url: 'category/get?category='+event.target.category.value,
+                    headers: { }
+                };
+                axios.request(config)
+                    .then((response1) => {
+                        let data = JSON.stringify({
+                            "name": event.target.name.value,
+                            "price": event.target.price.value,
+                            "quantity": event.target.quantity.value,
+                            "fullDescription": event.target.description.value,
+                            "productSpecs": event.target.specs.value,
+                            "category": response1.data,
+                            "photo": response.data
+                        });
+                        let config = {
+                            method: 'post',
+                            maxBodyLength: Infinity,
+                            url: '/products/create',
+                            headers: {
+                                'Content-Type': 'application/json'
+                            },
+                            data : data
+                        };
+                        axios.request(config)
+                            .then((response2) => {
+                                if(response2.status===200){
+                                    event.target.reset()
+                                }
+                            })
+                            .catch((error) => {
+                                console.log(error);
+                            });
+                    })
+                    .catch((error) => {
+                        console.log(error);
+                    });
+
             })
             .catch((error) => {
                 console.log(error);

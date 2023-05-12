@@ -1,0 +1,29 @@
+.orders-admin{
+    height: 100%;
+    width: 100%;
+}
+.orders-admin table{
+    border-collapse: collapse;
+    width: 100%;
+    text-align: center;
+    white-space: normal;
+    table-layout: fixed;
+
+}
+.orders-admin table, td, th {
+    border: 1px solid;
+}
+.orders-admin thead{
+    background-color: #bdbbbb;
+    font-size: 1.5rem;
+    font-weight: bold;
+    text-align: center;
+}
+.orders-admin tbody{
+    font-size: 1rem;
+}
+.orders-admin tr td{
+    word-wrap: break-word;
+
+
+}

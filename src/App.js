@@ -47,7 +47,7 @@ function App() {
             <Route path="/payment" element={<Payment/>}/>
             <Route path="/admin" element={<AdminPanel/>}/>
             <Route path="/products" element={<AdminProducts/>}/>
-            <Route path="/order" element={<Order/>}/>
+            <Route path="/order/:orderId" element={<Order/>}/>
           </Routes>
         </BrowserRouter>
 
