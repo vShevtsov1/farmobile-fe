@@ -1,0 +1,25 @@
+.order-container table{
+    border-collapse: collapse;
+    width: 100%;
+    text-align: center;
+    white-space: normal;
+    table-layout: fixed;
+
+}
+.order-container table, td, th {
+    border: 1px solid;
+}
+.order-container thead{
+    background-color: #bdbbbb;
+    font-size: 1.5rem;
+    font-weight: bold;
+    text-align: center;
+}
+.order-container tbody{
+    font-size: 1rem;
+}
+.order-container tr td{
+    word-wrap: break-word;
+
+
+}
