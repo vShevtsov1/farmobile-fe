@@ -48,6 +48,6 @@
 }
 
 .buttons button:focus {
-    border-color: #4285f4;
+    border-color: #000000;
     outline: none;
 }

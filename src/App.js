@@ -18,6 +18,7 @@ import ItemInfo from "./catalog-service/components/item-info";
 import CartSubmit from "./cart-service/components/cart-submit";
 import Payment from "./cart-service/components/payment";
 import AdminPanel from "./admin-service/components/admin-panel";
+import AdminProducts from "./admin-service/components/admin-products";
 
 
 function App() {
@@ -44,6 +45,7 @@ function App() {
             <Route path="/cart-submit" element={<CartSubmit/>}/>
             <Route path="/payment" element={<Payment/>}/>
             <Route path="/admin" element={<AdminPanel/>}/>
+            <Route path="/products" element={<AdminProducts/>}/>
           </Routes>
         </BrowserRouter>
 
