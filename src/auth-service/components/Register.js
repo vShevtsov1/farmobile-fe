@@ -10,6 +10,8 @@ export const Register = () => {
     const [passwordUpper, setPasswordUpper] = useState(false);
     const [passwordNum, setPasswordNum] = useState(false);
     const navigate = useNavigate();
+    const [isButtonClicked, setIsButtonClicked] = useState(false);
+
 
     function changePassword(event) {
         if (event.target.value.length < 8 ){
@@ -47,6 +49,7 @@ export const Register = () => {
             },
             data : data
         };
+        setIsButtonClicked(true);
         axios.request(config)
             .then((response) => {
                 if(response.data.status==="FAILED"){
@@ -109,7 +112,7 @@ export const Register = () => {
                     {passwordLength ? (<div className='active-text-animation'><p >✅<span className='active-text'>Довжина паролю більше 8 символів!</span></p></div>): (<p>❌<span className='disabled-text'>Довжина паролю більше 8 символів!</span></p>)}
                     {passwordUpper ? (<div className='active-text-animation'><p >✅<span className='active-text'>Пароль містить велику літеру!</span></p></div>): (<p>❌<span className='disabled-text'>Пароль містить велику літеру!</span></p>)}
                     {passwordNum ? (<div className='active-text-animation'><p >✅<span className='active-text'>Пароль містить хоча б одну цифру!</span></p></div>): (<p>❌<span className='disabled-text'>Пароль містить хоча б одну цифру!</span></p>)}
-                    {(passwordLength === true && passwordUpper === true && passwordNum === true) ? (<button className='auth-button'  style={{cursor:'pointer'}} type='submit'  >Зареєструватися</button>): (<button className='auth-button' type='submit' disabled={true}  >Зареєструватися</button>)}
+                    {(passwordLength === true && passwordUpper === true && passwordNum === true && isButtonClicked === false) ? (<button className='auth-button'   style={{cursor:'pointer'}} type='submit'  >Зареєструватися</button>): (<button className='auth-button' style={{cursor: "not-allowed"}}  type='submit' disabled={true}  >Зареєструватися</button>)}
 
                 </form>
                 <Link to={"/"}>Уже є акаунт? Увійти.</Link>

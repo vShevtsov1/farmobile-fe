@@ -1,0 +1,53 @@
+.adminPanel-container{
+    text-align: center;
+    display: flex;
+    min-height: 100vh;
+    background-color: #ffffff;
+}
+.adminList{
+    width: 20%;
+    border-right: #000000 solid;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.adminMain{
+    width: 80%;
+
+}
+.buttons{
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+}
+
+.buttons button {
+    background-color: #d0d0d0;
+    border: 1px solid #d0d0d0;
+    border-radius: 4px;
+    color: #3c4043;
+    cursor: pointer;
+    font-family: arial,sans-serif;
+    font-size: 14px;
+    height: 36px;
+    line-height: 27px;
+    min-width: 54px;
+    text-align: center;
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+    white-space: pre;
+
+    margin-bottom: 1rem;
+}
+
+.buttons button:hover {
+    border-color: #525252;
+    box-shadow: rgba(0, 0, 0, .1) 0 1px 1px;
+    color: #202124;
+}
+
+.buttons button:focus {
+    border-color: #4285f4;
+    outline: none;
+}

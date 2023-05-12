@@ -17,6 +17,7 @@ import Catalog from "./catalog-service/components/catalog";
 import ItemInfo from "./catalog-service/components/item-info";
 import CartSubmit from "./cart-service/components/cart-submit";
 import Payment from "./cart-service/components/payment";
+import AdminPanel from "./admin-service/components/admin-panel";
 
 
 function App() {
@@ -42,6 +43,7 @@ function App() {
             <Route path="/catalog/item/:itemId" element={<ItemInfo/>}/>
             <Route path="/cart-submit" element={<CartSubmit/>}/>
             <Route path="/payment" element={<Payment/>}/>
+            <Route path="/admin" element={<AdminPanel/>}/>
           </Routes>
         </BrowserRouter>
 

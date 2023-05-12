@@ -41,7 +41,7 @@
             <header>
                 <div className="header-container">
                     <div className="main-name">
-                        <Logo/>
+                        <Link to='/main'><Logo/></Link>
                         <h1>Farmobile</h1>
                     </div>
                     <div className='main-phrase'>
