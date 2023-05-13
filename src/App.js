@@ -6,20 +6,18 @@ import {BrowserRouter, Route, Routes} from "react-router-dom";
 import "./App.css"
 import {ResetPassword} from "./auth-service/components/ResetPassword";
 import {Activation} from "./auth-service/components/Activation";
-import Navigation from "./main-page-service/components/navigation";
-import RentComponent from "./main-page-service/components/rentComponent";
-import Header from "./main-page-service/components/header";
 import MainPage from "./main-page-service/components/mainPage";
-import Question from "./main-page-service/components/question";
-import Footer from "./main-page-service/components/footer";
 import { CartContext } from "./main-page-service/config/CartContext";
 import Catalog from "./catalog-service/components/catalog";
 import ItemInfo from "./catalog-service/components/item-info";
 import CartSubmit from "./cart-service/components/cart-submit";
-import Payment from "./cart-service/components/payment";
 import AdminPanel from "./admin-service/components/admin-panel";
-import AdminProducts from "./admin-service/components/admin-products";
 import Order from "./admin-service/components/order";
+
+
+
+
+
 
 
 function App() {

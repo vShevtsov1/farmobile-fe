@@ -47,7 +47,8 @@ const OrdersAdmin = () => {
   }, [token]);
 
   function orderInfo(order) {
-  navigate("/order/"+order)
+    const newTab = window.open(`/order/${order}`, '_blank');
+    newTab.focus();
 
   }
 

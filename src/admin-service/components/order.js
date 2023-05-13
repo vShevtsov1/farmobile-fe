@@ -1,9 +1,13 @@
-import "../stylesSheets/order.css";
-import React, { useEffect, useState } from "react";
-import { useNavigate, useParams } from "react-router-dom";
-import axios from "axios";
+import React, {useEffect, useState} from 'react';
+import { Document, Page, Text, StyleSheet,PDFViewer ,View,Font} from '@react-pdf/renderer';
+import {useNavigate, useParams} from "react-router-dom";
 import jwt_decode from "jwt-decode";
+import axios from "axios";
 
+import UkrainianFont from '../stylesSheets/DroidSerif-Regular.ttf';
+
+// Register the custom font
+Font.register({ family: 'UkrainianFont', src: UkrainianFont });
 const Order = () => {
     const { orderId } = useParams();
     const [data, setData] = useState(null);
@@ -40,6 +44,7 @@ const Order = () => {
                 };
 
                 const response = await axios.request(config);
+                response.data.date = formatData(response.data.date)
                 setData(response.data);
                 setLoading(false);
             } catch (error) {
@@ -63,50 +68,87 @@ const Order = () => {
     if (loading) {
         return <div>Loading...</div>;
     }
-
     return (
-        <div className="order-container">
-            <table>
-                <thead>
-                <tr>
-                    <th colSpan="2">{data.idorders}</th>
-                </tr>
-                </thead>
-                <tbody>
-                <tr>
-                    <th>Дата</th>
-                    <td>{formatData(data.date)}</td>
-                </tr>
-                <tr>
-                    <th>Сумма</th>
-                    <td>{data.summ}</td>
-                </tr>
-                <tr>
-                    <th>Номер</th>
-                    <td>{data.phoneNumber}</td>
-                </tr>
-                <tr>
-                    <th>Адреса</th>
-                    <td>{data.adress}</td>
-                </tr>
-                <tr>
-                    <th>Пошта</th>
-                    <td>{data.userDTO.email}</td>
-                </tr>
-                <tr>
-                    <th>Назва</th>
-                    <th>Ціна</th>
-                </tr>
-                {data.products.map((product) => (
-                    <tr key={product.idProducts}>
-                        <td>{product.name}</td>
-                        <td>{product.price}</td>
-                    </tr>
-                ))}
-                </tbody>
-            </table>
+        <div style={{ width: '100vw', height: '100vh' }}>
+            <PDFViewer style={{ width: '100%', height: '100%' }}>
+                <OrderDocument data={data} />
+            </PDFViewer>
         </div>
     );
 };
+
+const OrderDocument = ({data}) => (
+    <Document>
+        <Page style={styles.page}>
+            <Text style={styles.text}>Номер замовлення {data.idorders}</Text>
+            <Text style={styles.data}>Дата: {data.date}</Text>
+            <Text style={styles.data}>Cума: {data.summ} UAH</Text>
+            <Text style={styles.data}>Номер телефону: {data.phoneNumber}</Text>
+            <Text style={styles.data}>Адреса: {data.adress}</Text>
+            <Text style={styles.data}>Ім'я клієнта: {data.userDTO.name}</Text>
+            <Text style={styles.data}>Прізвище клієнта: {data.userDTO.surname}</Text>
+            <Text style={styles.data}>Електронна адреса клієнта: {data.userDTO.email}</Text>
+            <View style={styles.table}>
+                <View style={styles.tableRow}>
+                    <View style={styles.tableCell}>
+                        <Text style={styles.headerText}>Назва продукту</Text>
+                    </View>
+                    <View style={styles.tableCell}>
+                        <Text style={styles.headerText}>Ціна продукту</Text>
+                    </View>
+                </View>
+                {data.products.map((product) => (
+                    <View style={styles.tableRow} key={product.idProducts}>
+                        <View style={styles.tableCell}>
+                            <Text style={styles.cellText}>{product.name}</Text>
+                        </View>
+                        <View style={styles.tableCell}>
+                            <Text style={styles.cellText}>{product.price}</Text>
+                        </View>
+                    </View>
+                ))}
+            </View>
+        </Page>
+    </Document>
+);
+
+const styles = StyleSheet.create({
+    page: {
+        flexDirection: 'column',
+        backgroundColor: '#E4E4E4',
+        padding: 10,
+        fontFamily: 'UkrainianFont', // Set the custom font
+    },
+    text: {
+        fontSize: 20,
+        textAlign: 'center',
+        margin: 10,
+
+    },
+    table: {
+        marginTop: 20,
+        display: 'table',
+        width: 'auto',
+    },
+    tableRow: {
+        flexDirection: 'row',
+    },
+    tableCell: {
+        width: '50%',
+        padding: 8,
+        borderWidth: 1,
+        borderStyle: 'solid',
+        borderColor: '#000',
+    },
+    headerText: {
+        fontWeight: 'bold',
+        textAlign: 'center',
+    },
+    cellText: {
+        textAlign: 'center',
+
+    }
+
+});
 
 export default Order;
