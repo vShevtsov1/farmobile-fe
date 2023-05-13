@@ -1,32 +1,57 @@
 import "../stylesSheets/order.css";
 import React, { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import axios from "axios";
+import jwt_decode from "jwt-decode";
 
 const Order = () => {
     const { orderId } = useParams();
     const [data, setData] = useState(null);
     const [loading, setLoading] = useState(true);
+    const navigate = useNavigate();
+    const [token, setToken] = useState("");
 
     useEffect(() => {
-        let config = {
-            method: "post",
-            maxBodyLength: Infinity,
-            url: "/orders/id?orderId=" + orderId,
-            headers: {},
-        };
+        try {
+            const token = localStorage.getItem("jwt");
+            const decodedToken = jwt_decode(token);
+            const expirationTime = decodedToken.exp;
 
-        axios
-            .request(config)
-            .then((response) => {
+            if (expirationTime < Date.now() / 1000) {
+                navigate("/login");
+            } else {
+                setToken(token);
+            }
+        } catch (e) {
+            navigate("/login");
+        }
+    }, [navigate]);
+
+    useEffect(() => {
+        const fetchData = async () => {
+            try {
+                let config = {
+                    method: "post",
+                    maxBodyLength: Infinity,
+                    url: "/orders/id?orderId=" + orderId,
+                    headers: {
+                        Authorization: "Bearer " + token,
+                    },
+                };
+
+                const response = await axios.request(config);
                 setData(response.data);
                 setLoading(false);
-            })
-            .catch((error) => {
+            } catch (error) {
                 console.log(error);
                 setLoading(false);
-            });
-    }, [orderId]);
+            }
+        };
+
+        if (token) {
+            fetchData();
+        }
+    }, [orderId, token]);
 
     function formatData(data) {
         const date = new Date(data);

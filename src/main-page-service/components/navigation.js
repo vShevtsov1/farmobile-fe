@@ -24,7 +24,7 @@ const Navigation = (showAdminPanel) => {
     return (
         <nav>
             <div className="navigation-menu">
-                    <Link to={"/main"}>Головна</Link>
+                    <Link to={"/"}>Головна</Link>
                 <div className="dropdown-menu">
                     <a href="#">Техніка ⇓</a>
                     <div className="additional-menu-technique">

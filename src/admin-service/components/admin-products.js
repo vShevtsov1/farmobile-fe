@@ -1,5 +1,8 @@
 import "../stylesSheets/admin-products.css"
 import axios from "axios";
+import jwt_decode from "jwt-decode";
+import {useNavigate} from "react-router-dom";
+import {useEffect, useState} from "react";
 
 
 
@@ -8,6 +11,23 @@ import axios from "axios";
 
 const AdminProducts = () => {
 
+    const [token, setToken] = useState("");
+    const navigate = useNavigate();
+    useEffect(() => {
+        try {
+            const token = localStorage.getItem("jwt");
+            const decodedToken = jwt_decode(token);
+            const expirationTime = decodedToken.exp;
+
+            if (expirationTime < Date.now() / 1000) {
+                navigate("/login");
+            } else {
+                setToken(token);
+            }
+        } catch (e) {
+            navigate("/login");
+        }
+    }, [navigate]);
     function handleSubmit(event) {
         event.preventDefault();
         let formData = new FormData();
@@ -19,6 +39,7 @@ const AdminProducts = () => {
             url: '/photo/upload',
             headers: {
                 'Content-Type': 'multipart/form-data',
+                Authorization: "Bearer " + token,
 
             },
             data : formData
@@ -30,7 +51,9 @@ const AdminProducts = () => {
                     method: 'get',
                     maxBodyLength: Infinity,
                     url: 'category/get?category='+event.target.category.value,
-                    headers: { }
+                    headers: {
+                        Authorization: "Bearer " + token,
+                    }
                 };
                 axios.request(config)
                     .then((response1) => {
@@ -48,7 +71,8 @@ const AdminProducts = () => {
                             maxBodyLength: Infinity,
                             url: '/products/create',
                             headers: {
-                                'Content-Type': 'application/json'
+                                'Content-Type': 'application/json',
+                                Authorization: "Bearer " + token,
                             },
                             data : data
                         };

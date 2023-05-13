@@ -1,24 +1,53 @@
-import "../stylesSheets/users-admin.css"
-import React, {useEffect, useState} from "react";
+import "../stylesSheets/users-admin.css";
+import React, { useEffect, useState } from "react";
 import axios from "axios";
+import { useNavigate } from "react-router-dom";
+import jwt_decode from "jwt-decode";
 
 const UsersAdmin = () => {
     const [users, setUsers] = useState([]);
+    const navigate = useNavigate();
+    const [token, setToken] = useState("");
+
     useEffect(() => {
-        let config = {
-            method: 'get',
-            maxBodyLength: Infinity,
-            url: '/user/all',
-            headers: {}
-        };
-        axios.request(config)
-            .then((response) => {
-                setUsers(response.data)
-            })
-            .catch((error) => {
+        try {
+            const token = localStorage.getItem("jwt");
+            const decodedToken = jwt_decode(token);
+            const expirationTime = decodedToken.exp;
+
+            if (expirationTime < Date.now() / 1000) {
+                navigate("/login");
+            } else {
+                setToken(token);
+            }
+        } catch (e) {
+            navigate("/login");
+        }
+    }, [navigate]);
+
+    useEffect(() => {
+        const fetchData = async () => {
+            try {
+                let config = {
+                    method: "get",
+                    maxBodyLength: Infinity,
+                    url: "/user/all",
+                    headers: {
+                        Authorization: "Bearer " + token,
+                    },
+                };
+
+                const response = await axios.request(config);
+                setUsers(response.data);
+            } catch (error) {
                 console.log(error);
-            });
-    }, [users])
+            }
+        };
+
+        if (token) {
+            fetchData();
+        }
+    }, [token]);
 
     const handleRoleChange = (userId, event) => {
         const newRole = event.target.value;
@@ -28,13 +57,18 @@ const UsersAdmin = () => {
             )
         );
         let config = {
-            method: 'get',
+            method: "get",
             maxBodyLength: Infinity,
             url: `/user/change-role/${userId}/${newRole}`,
+            headers: {
+                Authorization: "Bearer " + token,
+            },
         };
         axios.request(config);
     };
-    return (<div className={"users-admin-container"}>
+
+    return (
+        <div className={"users-admin-container"}>
             <table>
                 <thead>
                 <tr>
@@ -67,6 +101,8 @@ const UsersAdmin = () => {
                 ))}
                 </tbody>
             </table>
-    </div>)
-}
+        </div>
+    );
+};
+
 export default UsersAdmin;

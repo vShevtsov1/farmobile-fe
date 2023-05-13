@@ -2,26 +2,49 @@ import "../stylesSheets/orders-admin.css"
 import React, {useEffect, useState} from "react";
 import axios from "axios";
 import {useNavigate} from "react-router-dom";
+import jwt_decode from "jwt-decode";
 
 const OrdersAdmin = () => {
   const [orders,setOrders]=useState([]);
   const navigate = useNavigate();
-  useEffect(()=>{
-    let config = {
-      method: 'get',
-      maxBodyLength: Infinity,
-      url: '/orders/get-all',
-    };
+  const [token, setToken] = useState("");
+  useEffect(() => {
+    try {
+      const token = localStorage.getItem("jwt");
+      const decodedToken = jwt_decode(token);
+      const expirationTime = decodedToken.exp;
 
-    axios.request(config)
-        .then((response) => {
-          setOrders(response.data)
-        })
-        .catch((error) => {
-          console.log(error);
-        });
+      if (expirationTime < Date.now() / 1000) {
+        navigate("/login");
+      } else {
+        setToken(token);
+      }
+    } catch (e) {
+      navigate("/login");
+    }
+  }, [navigate]);
 
-  })
+  useEffect(() => {
+    if (token) {
+      let config = {
+        method: "get",
+        maxBodyLength: Infinity,
+        url: "/orders/get-all",
+        headers: {
+          Authorization: "Bearer " + token,
+        },
+      };
+
+      axios
+          .request(config)
+          .then((response) => {
+            setOrders(response.data);
+          })
+          .catch((error) => {
+            console.log(error);
+          });
+    }
+  }, [token]);
 
   function orderInfo(order) {
   navigate("/order/"+order)
